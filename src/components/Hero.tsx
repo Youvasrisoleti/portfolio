@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8">
           <img
-            src="https://media.istockphoto.com/id/994751270/photo/portrait-young-asian-businesswoman-holding-tablet-smartphone-in-formal-suit-in-office-with.jpg?s=612x612&w=0&k=20&c=EaYoCuTyMKl2_U6z5oFoT0j1U3xj1ZHA9mew2G6_WSs="
+            src="https://static.vecteezy.com/system/resources/thumbnails/035/832/837/small/ai-generated-beautiful-young-business-woman-portrait-woman-face-smiling-cute-girl-with-long-hair-studio-shot-isolated-on-gray-background-photo.jpg"
             alt="Soleti Youvasri"
             className="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg"
           />
