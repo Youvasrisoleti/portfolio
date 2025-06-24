@@ -40,8 +40,8 @@ const About: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="About Alex"
+              src="https://www.shutterstock.com/image-photo/happy-professional-elegant-mature-45-600nw-2356242033.jpg"
+              alt="About Youvasri"
               className="rounded-lg shadow-lg w-full h-96 object-cover"
             />
           </div>
