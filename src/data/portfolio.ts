@@ -24,8 +24,8 @@ export const projects: Project[] = [
     title: 'Portfolio Website',
     description: 'Personal portfolio website showcasing projects, skills, and experience with modern design.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    liveUrl: 'https://portfolio.example.com',
-    githubUrl: 'https://github.com/username/portfolio',
+    liveUrl: 'https://youvaportfolio.netlify.app/',
+    githubUrl: 'https://github.com/Youvasrisoleti/portfolio',
     imageUrl: 'https://mir-s3-cdn-cf.behance.net/projects/404/bf1e68214791583.Y3JvcCwzMDY4LDI0MDAsNjgsMA.jpg'
   }
 ];
