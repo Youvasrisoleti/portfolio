@@ -2,11 +2,12 @@ import React from 'react';
 import { Download, FileText, Eye } from 'lucide-react';
 
 const Resume: React.FC = () => {
+  const resumePath = '/Youvasri_Resume.pdf';
+
   const handleDownload = () => {
-    // In a real application, this would download the actual resume file
     const link = document.createElement('a');
-    link.href = "https://drive.google.com/file/d/1hhEdQ-8eMgFCwtnjI92PiTZpogHSfO9t/view?usp=sharing";
-    link.download = 'https://drive.google.com/file/d/1hhEdQ-8eMgFCwtnjI92PiTZpogHSfO9t/view?usp=sharing';
+    link.href = resumePath;
+    link.download = 'Youvasri_Resume.pdf';
     link.click();
   };
 
@@ -45,7 +46,12 @@ const Resume: React.FC = () => {
               <span>Download PDF</span>
             </button>
             <button
-              onClick={() => window.open('/path-to-resume.pdf', '_blank')}
+              onClick={() =>
+                window.open(
+                  'https://drive.google.com/file/d/1hhEdQ-8eMgFCwtnjI92PiTZpogHSfO9t/view?usp=sharing',
+                  '_blank'
+                )
+              }
               className="flex items-center justify-center space-x-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-colors"
             >
               <Eye size={20} />
@@ -72,14 +78,13 @@ const Resume: React.FC = () => {
               <li>• PDF format for compatibility</li>
               <li>• ATS-friendly layout</li>
               <li>• Professional design</li>
-          
             </ul>
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h4 className="font-bold text-gray-900 mb-3">Quick Stats</h4>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>• Internship at IIT Ropar - 8 weeks </li>
+              <li>• Internship at IIT Ropar - 8 weeks</li>
               <li>• Multiple internships</li>
               <li>• Open to opportunities</li>
             </ul>
