@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { ContactForm } from '../types/portfolio';
 
 const Contact: React.FC = () => {
@@ -23,13 +24,28 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch {
+      const result = await emailjs.send(
+        'service_05lzzfl',
+        'template_k9xn8v8',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        },
+        'XDvHpF6etyw2OTPMH'
+      );
+
+      if (result.status === 200) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -45,17 +61,14 @@ const Contact: React.FC = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            I'd love to hear from you! Whether you have a project in mind, want to collaborate, 
+            I'd love to hear from you! Whether you have a project in mind, want to collaborate,
             or just want to say hello, feel free to reach out.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Let's Connect
-            </h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Let's Connect</h3>
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -66,7 +79,6 @@ const Contact: React.FC = () => {
                   <p className="text-gray-600">soletiyouvasri@gmail.com</p>
                 </div>
               </div>
-              
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Phone className="text-green-600" size={20} />
@@ -76,28 +88,25 @@ const Contact: React.FC = () => {
                   <p className="text-gray-600">+91 8639334649</p>
                 </div>
               </div>
-              
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                   <MapPin className="text-orange-600" size={20} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Location</h4>
-                  <p className="text-gray-600">Bobbili,Vizianagaram</p>
+                  <p className="text-gray-600">Bobbili, Vizianagaram</p>
                 </div>
               </div>
             </div>
-
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
               <h4 className="font-semibold text-gray-900 mb-2">Response Time</h4>
               <p className="text-gray-700 text-sm">
-                I typically respond to emails within 24 hours. For urgent matters, 
+                I typically respond to emails within 24 hours. For urgent matters,
                 feel free to call or text me directly.
               </p>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div>
             <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -130,7 +139,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                   Subject
@@ -145,7 +154,7 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message
@@ -160,7 +169,7 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 disabled={isSubmitting}
