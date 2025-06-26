@@ -15,7 +15,7 @@ export const projects: Project[] = [
     title: 'Smart Traffic Management System',
     description: 'Intelligent traffic management system with real-time monitoring, traffic prediction, and route optimization.',
     technologies: ['React.js', 'Deep Learning', 'MongoDB', 'TypeScript', 'Express.js','Node.js'],
-    liveUrl: 'https://taskflow.example.com',
+    liveUrl: 'https://youvatrafficmonitoring.netlify.app/',
     githubUrl: 'https://github.com/Youvasrisoleti/hackhubPS5',
     imageUrl: 'https://mc-technologies.com/wp-content/uploads/2022/04/verkehr-logistik_verkehrssteuerung.jpg'
   },
